@@ -19,18 +19,18 @@ source:
     - osx-frame.patch  # [osx]
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
-    - python
+    - {{ compiler('cxx') }}
+  host:
+    - python {{ python }}
     - setuptools
     - pkg-config  # [not win]
-    - numpy 1.8.*  # [not (win and (py35 or py36))]
-    - numpy 1.9.*  # [win and py35]
-    - numpy 1.11.*  # [win and py36]
+    - numpy {{ numpy }}
     - python-dateutil
-    - freetype 2.7
+    - freetype
     - msinttypes  # [win]
     - cycler >=0.10
     - nose
@@ -39,26 +39,28 @@ requirements:
     #- py2cairo  # [linux and py2k]
     - libpng >=1.6.28,<1.7
     - zlib 1.2.8  # [win]
-    - pyqt 5.6.*  # [not osx]
-    - tk 8.5.*  # [linux]
+    - pyqt 5.6.*
+    - wxpython =3.0.0 # [py2k]
+    - wxpython # [py3k]
+    - tk # [linux]
     - functools32  # [py2k]
     - subprocess32  # [py2k and unix]
     - icu 58.*  # [linux]
   run:
     - python
     - setuptools
-    - numpy >=1.8  # [not (win and (py35 or py36))]
-    - numpy >=1.9  # [win and py35]
-    - numpy >=1.11  # [win and py36]
+    - numpy
     - cycler >=0.10
     - python-dateutil
-    - freetype 2.7
+    - freetype
     - pytz
     - pyparsing
     #- py2cairo  # [linux and py2k]
     - libpng >=1.6.28,<1.7
-    - pyqt 5.6.*  # [not osx]
-    - tk 8.5.*  # [linux]
+    - pyqt 5.6.*
+    - wxpython =3.0.0 # [py2k]
+    - wxpython # [py3k]
+    - tk # [linux]
     - functools32  # [py2k]
     - subprocess32  # [py2k and unix]
     - icu 58.*  # [linux]
