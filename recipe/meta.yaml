@@ -8,8 +8,10 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/matplotlib/matplotlib/archive/v{{ version }}.tar.gz
-  sha256: aebed23921562792b68b8ca355de5abc176af4424f1987e2fa95f65e5c5e7e89
+  #url: https://github.com/matplotlib/matplotlib/archive/v{{ version }}.tar.gz
+  #sha256: aebed23921562792b68b8ca355de5abc176af4424f1987e2fa95f65e5c5e7e89
+  git_url: https://github.com/matplotlib/matplotlib.git
+  git_tag: v{{ version }}
   patches:
     # Find libpng on Windows.
     - setupext.patch  # [win]
@@ -39,7 +41,7 @@ requirements:
     - pytz
     #- py2cairo  # [linux and py2k]
     - libpng >=1.6.28,<1.7
-    - zlib 1.2.8  # [win]
+    - zlib # [win]
     #- pyqt 5.6.*
     - wxpython =3.0.0 # [py2k]
     - wxpython # [py3k]
